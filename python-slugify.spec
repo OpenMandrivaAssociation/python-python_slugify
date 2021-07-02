@@ -2,7 +2,7 @@
 %global pypi_name python-slugify
 %global altname python_slugify
 
-Name:           %{pypi_name}
+Name:           python-%{altname}
 Version:        5.0.2
 Release:        1
 Summary:        A generic slugifier
@@ -27,7 +27,7 @@ BuildRequires:  python3dist(setuptools)
 %install
 %py3_install
 
-%files -n %{pypi_name}
+%files -n python-%{altname}
 %{_bindir}/slugify
 %{python3_sitelib}/slugify
 %{python3_sitelib}/%{altname}-%{version}-py%{python3_version}.egg-info
