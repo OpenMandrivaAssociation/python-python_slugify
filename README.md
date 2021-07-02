@@ -1,1 +1,1 @@
-# python-slugify
+# python-python_slugify
