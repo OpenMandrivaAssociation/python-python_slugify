@@ -4,7 +4,7 @@
 
 Name:           python-%{altname}
 Version:        5.0.2
-Release:        1
+Release:        2
 Summary:        A generic slugifier
 Group:          Development/Python
 License:        None
