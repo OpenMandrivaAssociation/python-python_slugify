@@ -15,6 +15,9 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
 
+Provides:	python3dist(python_slugify)
+Provides:	python3dist(python-slugify)
+
 %description
 
 
