@@ -8,7 +8,7 @@ Release:        2
 Summary:        A generic slugifier
 Group:          Development/Python
 License:        None
-URL:            http://github.com/zacharyvoase/slugify
+URL:            https://github.com/zacharyvoase/slugify
 Source0:        %{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
