@@ -11,12 +11,12 @@ URL:            https://github.com/un33k/python-slugify
 Source0:        https://github.com/un33k/python-slugify/archive/refs/tags/v%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python-pip 
-BuildRequires:  python-setuptools
-BuildRequires:  python-text-unidecode
-BuildRequires:  python-wheel
+BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(setuptools)
+BuildRequires:  python%{pyver}dist(text-unidecode)
+BuildRequires:  python%{pyver}dist(wheel)
 
-Requires:	      python-text-unidecode
+Requires:       python%{pyver}dist(text-unidecode)
 
 %description
 Best attempt to create slugs from unicode strings while keeping it DRY.
