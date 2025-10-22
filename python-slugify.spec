@@ -3,7 +3,7 @@
 
 Name:           python-%{altname}
 Version:        8.0.4
-Release:        1%{?dist}
+Release:        1
 Summary:        A Python slugify application that handles unicode.
 Group:          Development/Python
 License:        MIT 
