@@ -1,25 +1,25 @@
-# Created by pyp2rpm-3.3.5
 %global pypi_name python-slugify
 %global altname python_slugify
 
 Name:           python-%{altname}
-Version:        5.0.2
-Release:        2
-Summary:        A generic slugifier
+Version:        8.0.4
+Release:        1
+Summary:        A Python slugify application that handles unicode.
 Group:          Development/Python
-License:        None
-URL:            https://github.com/zacharyvoase/slugify
-Source0:        %{pypi_name}-%{version}.tar.gz
+License:        MIT 
+URL:            https://github.com/un33k/python-slugify
+Source0:        https://github.com/un33k/python-slugify/archive/refs/tags/v%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
-BuildRequires:  python3dist(setuptools)
+BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(setuptools)
+BuildRequires:  python%{pyver}dist(text-unidecode)
+BuildRequires:  python%{pyver}dist(wheel)
 
-Provides:	python3dist(python_slugify)
-Provides:	python3dist(python-slugify)
+Requires:       python%{pyver}dist(text-unidecode)
 
 %description
-
+Best attempt to create slugs from unicode strings while keeping it DRY.
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
@@ -30,8 +30,25 @@ Provides:	python3dist(python-slugify)
 %install
 %py3_install
 
-%files -n python-%{altname}
+%check
+python3 ./test.py
+
+%post
+if [ -f %{_bindir}/slugify ] && [ ! -L %{_bindir}/slugify ]; then
+    rm -f %{_bindir}/slugify
+fi
+update-alternatives --install /usr/bin/slugify slugify %{_bindir}/slugify 50
+
+%postun
+update-alternatives --remove slugify %{_bindir}/slugify || :
+
+%pre
+update-alternatives --remove slugify %{_bindir}/slugify || :
+
+%files
+%doc CHANGELOG.md README.md
+%license LICENSE
 %{_bindir}/slugify
-%{python3_sitelib}/slugify
-%{python3_sitelib}/%{altname}-%{version}-py%{python3_version}.egg-info
+%{python3_sitelib}/slugify*
+%{python3_sitelib}/python_slugify-%{version}-py%{python3_version}.egg-info
 
