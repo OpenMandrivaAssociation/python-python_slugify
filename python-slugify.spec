@@ -6,9 +6,9 @@ Version:        8.0.4
 Release:        1
 Summary:        A Python slugify application that handles unicode.
 Group:          Development/Python
-License:        MIT 
+License:        MIT
 URL:            https://github.com/un33k/python-slugify
-Source0:        https://github.com/un33k/python-slugify/archive/refs/tags/v%{version}.tar.gz
+Source0:        https://github.com/un33k/python-slugify/archive/v%{version}/%{altname}-v%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python%{pyver}dist(pip)
