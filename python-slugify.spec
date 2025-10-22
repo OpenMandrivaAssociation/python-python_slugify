@@ -52,8 +52,3 @@ update-alternatives --remove slugify %{_bindir}/slugify || :
 %{python3_sitelib}/slugify*
 %{python3_sitelib}/python_slugify-%{version}-py%{python3_version}.egg-info
 
-%changelog
-* Tue Oct 21 2025 Samuil Ivanov <samuil.ivanovbg@gmail.com> - 8.0.4-0
-- Updated python-slugify to version 8.0.4
-- Fixed %post,%postun and %pre scripts to handle update-alternatives safely
-- Verified tests with Python 3.11
