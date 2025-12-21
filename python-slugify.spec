@@ -33,18 +33,6 @@ Best attempt to create slugs from unicode strings while keeping it DRY.
 %check
 python3 ./test.py
 
-%post
-if [ -f %{_bindir}/slugify ] && [ ! -L %{_bindir}/slugify ]; then
-    rm -f %{_bindir}/slugify
-fi
-update-alternatives --install /usr/bin/slugify slugify %{_bindir}/slugify 50
-
-%postun
-update-alternatives --remove slugify %{_bindir}/slugify || :
-
-%pre
-update-alternatives --remove slugify %{_bindir}/slugify || :
-
 %files
 %doc CHANGELOG.md README.md
 %license LICENSE
